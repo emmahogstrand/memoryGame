@@ -1,0 +1,10 @@
+
+<div class="card" [class.flipped]="card.flipped" (click)="flipCard()">
+    <div class="card-content">
+      <img [src]="card.flipped ? card.imagePath : ''" alt="Dog" class="front-face" />
+                <div class="breed-name" *ngIf="card.flipped">{{ card.breed }}</div>
+                </div>
+        <div *ngIf="!card.flipped" class="back-face"></div>
+</div>
+
+  

@@ -1,0 +1,49 @@
+
+  .card {
+    width: 210px; 
+    height: 290px;
+    border-radius: 5%;
+    border: 2px solid #344063; 
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.6s ease; 
+    box-shadow: 25px 15px 20px rgba(89, 88, 88, 0.62); 
+    margin: 20px;
+    background-color: #7a8dc3;
+  }
+  
+
+  
+  
+  .card img.front-face {
+    display: none; 
+    width: 230px;
+    height: 180px;
+    margin: 20px;
+    box-shadow: none;
+
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+    box-shadow: -25px 10px 20px rgba(89, 88, 88, 0.62); 
+    background: linear-gradient(to left, #bccbf5, #98a9d4);
+
+  }
+  
+  .card.flipped img.front-face {
+    display: block; 
+    box-shadow: none;
+    margin-left: -15px;
+  }
+
+  .breed-name {
+    text-align: center;
+    font-family: 'Patrick Hand SC', cursive;
+    font-weight: bold;
+    font-size: 28px; 
+    color: rgb(0, 0, 0); 
+    transform: rotateY(180deg); 
+    margin: 20px;  
+  }
