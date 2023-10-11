@@ -1,11 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
 
-
-<h1> Memory Game </h1>
+<h1>Memory Game</h1>
 
 <div class="card-list">
-    <app-card-list-item
-      *ngFor="let card of cards"
-      [card]="card"
-    ></app-card-list-item>
+  <app-card-list-item *ngFor="let card of cards" [card]="card" (cardClicked)="onCardClicked($event)"></app-card-list-item>
 </div>

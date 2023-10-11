@@ -1,10 +1,11 @@
-
-<div class="card" [class.flipped]="card.flipped" (click)="flipCard()">
-    <div class="card-content">
-      <img [src]="card.flipped ? card.imagePath : ''" alt="Dog" class="front-face" />
-                <div class="breed-name" *ngIf="card.flipped">{{ card.breed }}</div>
-                </div>
-        <div *ngIf="!card.flipped" class="back-face"></div>
-</div>
-
+<div class="card" [class.flipped]="card.flipped" (click)="selectCard()">
+    <!-- Front face of the card -->
+    <div class="front-face">
+      <img *ngIf="card.flipped" [src]="card.imagePath" alt="Dog" class="card-image" />
+      <!-- Breed name displayed under the image -->
+      <div class="breed-name">{{ card.breed }}</div>
+    </div>
   
+    <!-- Back face of the card -->
+    <div *ngIf="!card.flipped" class="back-face">
+</div>

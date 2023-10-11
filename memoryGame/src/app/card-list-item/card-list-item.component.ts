@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Card } from '../models/card';
 
 @Component({
   selector: 'app-card-list-item',
@@ -6,9 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-list-item.component.css']
 })
 export class CardListItemComponent {
-  @Input() card: any;
+  @Input() card!: Card;
+  @Output() cardClicked: EventEmitter<Card> = new EventEmitter<Card>();
 
-  flipCard() {
-    this.card.flipped = !this.card.flipped;
+  selectCard() {
+    if (!this.card.isMatched && !this.card.flipped) {
+      this.cardClicked.emit(this.card); // Emit the clicked card to the parent component
+    }
   }
+
 }
