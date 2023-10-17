@@ -1,11 +1,13 @@
-<div class="card" [class.flipped]="card.flipped" (click)="selectCard()">
-    <!-- Front face of the card -->
-    <div class="front-face">
-      <img *ngIf="card.flipped" [src]="card.imagePath" alt="Dog" class="card-image" />
-      <!-- Breed name displayed under the image -->
-      <div class="breed-name">{{ card.breed }}</div>
-    </div>
-  
-    <!-- Back face of the card -->
-    <div *ngIf="!card.flipped" class="back-face">
+<div class="card" [class.flipped]="card.flipped" [class.matched]="card.isMatched" (click)="selectCard()">
+  <!-- Front face of the card -->
+  <div class="front-face">
+    <img *ngIf="card.flipped" [src]="card.imagePath" alt="Dog" class="card-image" />
+    <!-- Breed name displayed under the image -->
+    <div class="breed-name" [class.hidden]="!card.flipped">{{ card.breed }}</div>
+  </div>
+
+  <!-- Back face of the card -->
+  <div *ngIf="!card.flipped" class="back-face">
+    <!-- You can customize the content of the back face here -->
+  </div>
 </div>

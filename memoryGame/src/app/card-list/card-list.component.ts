@@ -80,8 +80,6 @@ export class CardListComponent implements OnInit {
         }
       }
       
-    
-  
       // Define an array to keep track of the selected cards
     selectedCards: Card[] = [];
 
@@ -99,54 +97,22 @@ export class CardListComponent implements OnInit {
           // Cards match, update any game logic (e.g., increase score)
           this.firstClickedCard.isMatched = true;
           card.isMatched = true;
+          this.firstClickedCard.flipped = true; // Flip the first card
+          card.flipped = true; // Flip the second card
+
           this.firstClickedCard = null; // Reset the firstClickedCard for the next pair of cards
+        
         } else {
-          // Cards don't match, flip them back after a delay
-          const firstClickedCard = this.firstClickedCard; // Store the firstClickedCard in a local variable
+         // Cards don't match, flip both cards immediately
+          this.firstClickedCard.flipped = true;
+          card.flipped = true;
           setTimeout(() => {
-            firstClickedCard.flipped = false;
+            this.firstClickedCard!.flipped = false;
             card.flipped = false;
             this.firstClickedCard = null; // Reset the firstClickedCard for the next pair of cards
           }, 1000); // Adjust the delay time as needed
         }
       }
     }
-    
-    
-
-
-
-  /*
-  if (!clickedCard.isMatched) {
-    clickedCard.flipped = true;
-  }
-
-    // Add the clicked card to the selectedCards array
-    this.selectedCards.push(clickedCard);
-
-    if (this.selectedCards.length === 2) {
-      const firstClickedCard = this.selectedCards[0];
-      const secondClickedCard = this.selectedCards[1];
-
-      if (firstClickedCard.imagePath === secondClickedCard.imagePath) {
-        // Cards match, update any game logic (e.g., increase score)
-        firstClickedCard.isMatched = true;
-        secondClickedCard.isMatched = true;
-
-        // Reset the selectedCards array for the next pair of cards
-        this.selectedCards = [];
-      } else {
-        // Cards don't match, flip them back after a delay (you can implement a delay using setTimeout)
-        setTimeout(() => {
-          firstClickedCard.flipped = false;
-          secondClickedCard.flipped = false;
-
-          // Reset the selectedCards array for the next pair of cards
-          this.selectedCards = [];
-        }, 1000); // Adjust the delay time as needed
-      }
-    }
-  }
-  */
 
 }

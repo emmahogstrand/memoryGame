@@ -12,6 +12,7 @@
     box-shadow: 25px 15px 20px rgba(89, 88, 88, 0.62); 
     margin: 20px;
     background-color: #7a8dc3;
+    
   }
   
   .card img {
@@ -32,7 +33,6 @@
     transform: rotateY(180deg);
     box-shadow: -25px 10px 20px rgba(89, 88, 88, 0.62); 
     background: linear-gradient(to left, #bccbf5, #98a9d4);
-
   }
   
   .card.flipped img.front-face {
@@ -41,12 +41,45 @@
     margin-left: -15px;
   }
 
+  .card.flipped .breed-name{
+    color: black;
+    visibility: visible;
+  }
+
   .breed-name {
     text-align: center;
     font-family: 'Patrick Hand SC', cursive;
     font-weight: bold;
     font-size: 28px; 
-    color: rgb(0, 0, 0); 
     transform: rotateY(180deg); 
     margin: 20px;  
+    color: transparent;
+    visibility: hidden;
   }
+
+  .matched {
+    background-color: #ffffff;
+    border: 5px solid #397946;
+    animation: shine 2s; 
+    transform-origin: center center;
+    transform: scale(1.5); /* Start with a larger size */
+  }
+  
+  @keyframes shine {
+    from {
+      background-color: #ffffff; /* Original background color */
+      transform: scale(1.2); /* Initial larger size */
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Add a subtle glow effect */
+      border: 5px solid #ffffff;
+    }
+    to {
+      background-color: #ffffff; /* Changed background color for the shine effect */
+      transform: scale(1); /* Return to the original size */
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); /* Increase glow during the shine effect */
+      border: 5px solid #397946;
+
+    }
+  }
+  
+  
+  
